@@ -1,4 +1,18 @@
-# US Manufacturing Automation ABM — AI for Research Open Exploration
+# ManufacturingPolicyLab
+
+**1990—2020 美国制造业自动化冲击的企业异质性政策沙盒**
+
+AI for Research 赛道｜开放探索赛初赛作品
+
+团队：suppartwang（个人参赛）｜负责人：王艺超
+
+---
+
+## 作品定位
+
+ManufacturingPolicyLab 是一个面向 1990—2020 年美国制造业自动化冲击的多主体政策沙盒。它耦合真实宏观数据（FRED/BLS/IFR）与企业规模异质性决策，允许研究者在一个可复现、可交互、可反事实推演的环境中试验不同政策组合对就业、工资与不平等的动态影响。
+
+核心问题：在 AI + 机器人自动化浪潮尚未完全定型之前，如何建立可试验的“政策沙盒”，避免重蹈前几次生产力大爆发对社会和人民造成的剧烈冲击？
 
 ## Project structure
 
@@ -12,7 +26,9 @@ project/
 │   ├── model.py              # Mesa multi-agent model
 │   ├── run_simulation.py     # batch scenario comparison
 │   └── analysis.py           # figure generation
-├── figures/                  # generated plots
+├── demo/
+│   └── PolicySandbox_Demo.ipynb   # interactive policy sandbox
+├── figures/                  # generated plots + policy_comparison.gif
 ├── results/                  # generated CSVs
 └── requirements.txt
 ```
@@ -35,13 +51,26 @@ python src/run_simulation.py
 
 # 4. Generate figures
 python src/analysis.py
+
+# 5. Launch interactive demo
+jupyter lab demo/PolicySandbox_Demo.ipynb
 ```
+
+## Demo
+
+- 交互式 Jupyter Notebook：`demo/PolicySandbox_Demo.ipynb`
+  - 拖动滑块实时调整失业替代率 `u`、机器人税收抵免 `r`、SME 补贴 `s`。
+  - 即时观察自动化强度、总就业、失业率与平均工资的 30 年演化。
+- 动态对比 GIF：`figures/policy_comparison.gif`
+  - 展示自由市场、温和干预、强力干预三种情景的政策演化。
+- 在线仓库：https://github.com/SuppartWang/ai-for-research-open-exploration
 
 ## Data sources
 
 - **E1**: IFR World Robotics 2020 Executive Summary (`AI4S/E1 IFR_WR_2020_Executive_Summary.pdf`)
 - **E2**: FRED `MANEMP` / `PAYEMS` (BLS), manufacturing employment share 1990-2020
 - **E3**: Acemoglu & Restrepo (2017), NBER 23285 (`AI4S/E3 robots_and_jobs_nber23285.pdf`)
+- **E4**: Lerch (2024), AEJ: Macro — distributional effects by gender/race
 - **E5**: Petrova, Schubert, Taska & Yildirim (2024), NBER 32655 (`AI4S/E5 Petrova_Schubert_Taska_Yildirim_NBER_32655.pdf`)
 - **E6**: FRED `INDPRO` / `AWHMAN` (Federal Reserve Bank of St. Louis)
 - **E7**: IFR full country-industry panel (proprietary; synthetic baseline used here)
@@ -56,3 +85,23 @@ Key design choices:
 - Automation augments labor productivity and allows substitution.
 - Large firms optimize over a 3-year horizon; small/medium firms are myopic.
 - Government sets three policy levers: unemployment replacement, robot tax credit, and SME subsidy.
+
+## Team
+
+| 成员 | 背景 | 核心技能 |
+|------|------|----------|
+| 王艺超 | 中国人民解放军陆军军医大学（原第三军医大学）临床医学学士；具身智能机器人/柔性操作方向创业者；开源 OPENROBOT 具身智能机器人控制框架作者 | 数学建模、时间序列分析、多主体仿真（Mesa）、Python |
+
+| 成员 | 角色 | 职责 |
+|------|------|------|
+| 王艺超 | 项目负责人 / 全栈 | 个人参赛：负责问题分析、模型构建、仿真实现、数据处理、可视化、文档撰写及全流程验证 |
+
+### 团队成果
+
+- 2023｜全军军事数学建模竞赛特等奖｜《基于遗传算法的空域冲突检测及消解问题研究》｜负责复杂系统建模与多约束优化算法设计
+- 2022｜全军军事数学建模竞赛二等奖｜数学建模竞赛｜担任指导教师兼参赛队员
+- 2018｜美国大学生数学建模竞赛（MCM/ICM）特等奖｜《HF Radio Reflection Model Based on P-M Spectrum and Finite Element Analysis》｜负责模型构建与论文撰写
+- 2017｜全军数学建模竞赛一等奖｜《基于 SOM 神经网络的辐射源信号分类识别研究》
+- 2017｜全国高教社杯数学建模竞赛国家级二等奖｜《平行束 CT 系统参数标定及成像》
+- 专利｜王艺超、卢伟等，一种可调节的上下肢康复训练装置，专利号：ZL 202222964963.6
+- 开源项目｜OPENROBOT – 具身智能机器人控制框架｜独立设计并开发模块化感知-决策-执行闭环控制框架｜https://github.com/SuppartWang/openrobot
