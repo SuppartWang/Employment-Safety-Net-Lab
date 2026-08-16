@@ -1,6 +1,6 @@
-# ManufacturingPolicyLab
+# Employment Safety Net Lab
 
-**1990—2020 美国制造业自动化冲击的企业异质性政策沙盒**
+**1990—2020 美国制造业自动化冲击下的就业缓冲政策沙盒**
 
 AI for Research 赛道｜开放探索赛初赛作品
 
@@ -10,9 +10,9 @@ AI for Research 赛道｜开放探索赛初赛作品
 
 ## 作品定位
 
-ManufacturingPolicyLab 是一个面向 1990—2020 年美国制造业自动化冲击的多主体政策沙盒。它耦合真实宏观数据（FRED/BLS/IFR）与企业规模异质性决策，允许研究者在一个可复现、可交互、可反事实推演的环境中试验不同政策组合对就业、工资与不平等的动态影响。
+Employment Safety Net Lab 是一个面向 1990—2020 年美国制造业自动化冲击的**就业缓冲政策沙盒**。它耦合真实宏观数据（FRED/BLS/IFR）与企业规模异质性决策，将“社会就业者所受冲击”作为核心落点，探索政府如何通过失业保险、机器人税、SME 补贴等调控工具构建“安全网”，在技术跃迁中缓冲失业、稳定工资、维护社会安定。
 
-核心问题：在 AI + 机器人自动化浪潮尚未完全定型之前，如何建立可试验的“政策沙盒”，避免重蹈前几次生产力大爆发对社会和人民造成的剧烈冲击？
+核心问题：在 AI + 机器人自动化浪潮尚未完全定型之前，如何建立可试验、可复盘、可对话的“政策沙盒”，避免重蹈前几次生产力大爆发对社会就业者造成的剧烈冲击与动荡？
 
 ## Project structure
 
@@ -62,7 +62,7 @@ jupyter lab demo/PolicySandbox_Demo.ipynb
   - 拖动滑块实时调整失业替代率 `u`、机器人税收抵免 `r`、SME 补贴 `s`。
   - 即时观察自动化强度、总就业、失业率与平均工资的 30 年演化。
 - 动态对比 GIF：`figures/policy_comparison.gif`
-  - 展示自由市场、温和干预、强力干预三种情景的政策演化。
+  - 展示自由市场、温和干预、强力干预三种情景下就业与政策的演化。
 - 在线仓库：https://github.com/SuppartWang/ai-for-research-open-exploration
 
 ## Data sources
@@ -78,13 +78,14 @@ jupyter lab demo/PolicySandbox_Demo.ipynb
 
 ## Model notes
 
-This is a minimal runnable Agent-Based Model (ABM) of the 1990-2020 US manufacturing automation shock. It is intentionally simplified for the open-exploration phase and is not meant to be a calibrated forecasting tool. The model is designed to be transparent, reproducible, and extensible.
+This is a minimal runnable Agent-Based Model (ABM) of the 1990-2020 US manufacturing automation shock, with a focus on employment outcomes and policy levers. It is intentionally simplified for the open-exploration phase and is not meant to be a calibrated forecasting tool. The model is designed to be transparent, reproducible, and extensible.
 
 Key design choices:
 - Demand-constrained firms with fixed market shares.
 - Automation augments labor productivity and allows substitution.
 - Large firms optimize over a 3-year horizon; small/medium firms are myopic.
 - Government sets three policy levers: unemployment replacement, robot tax credit, and SME subsidy.
+- Core signals: unemployment rate, total employment, wage level, wage inequality, government budget sustainability.
 
 ## Team
 
